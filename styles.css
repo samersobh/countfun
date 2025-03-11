@@ -1,0 +1,113 @@
+/* ✅ General Page Styling */
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #f0f8ff, #dfe8f0);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ✅ Page Title */
+h1 {
+    color: #ff69b4;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ✅ Main Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 15px;
+}
+
+/* ✅ Input Section Styling */
+.input-section {
+    background-color: #fffacd;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Input Fields */
+input, button {
+    padding: 12px;
+    margin: 6px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 90%;
+}
+
+/* ✅ Button Styling */
+button {
+    background-color: #32cd32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #28a428;
+    transform: scale(1.05);
+}
+
+/* ✅ Calendar Section */
+.calendar-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* ✅ Day Box Styling */
+.day-box {
+    background-color: #add8e6;
+    padding: 15px;
+    width: 130px;
+    min-height: 140px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Auto-Resizing Textarea */
+.day-box textarea {
+    width: 100%;
+    min-height: 40px;
+    max-height: 150px;
+    padding: 8px;
+    font-size: 14px;
+    resize: none;
+    overflow-y: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* ✅ Recommendations Section */
+.recommendations-section {
+    background-color: #ffe4e1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Other Fun Ideas Styling */
+.recommendations-section ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.recommendations-section li {
+    font-size: 16px;
+    margin: 8px 0;
+    padding: 6px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}

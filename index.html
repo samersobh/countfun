@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Fun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Countdown Fun 🎉</h1>
+
+    <div class="container">
+        <section class="input-section">
+            <label>Event Name: 
+                <input type="text" id="eventName" placeholder="Enter event name or description">
+            </label>
+            <label>Event Location: 
+                <input type="text" id="eventLocation" placeholder="Where will this event take place?">
+            </label>
+            <label>Event Date: 
+                <input type="date" id="eventDate">
+            </label>
+            <label>Countdown Days: 
+                <input type="number" id="countdownDays" min="1" placeholder="e.g., 14">
+            </label>
+            <button id="generateBtn">🚀 Create Calendar</button>
+            <button id="resetBtn" class="reset-button">🔄 Reset</button>
+        </section>
+
+        <section id="calendar" class="calendar-section"></section>
+
+        <section id="recommendations" class="recommendations-section">
+            <h2>🎈 Other Fun Ideas</h2>
+            <p>These are additional fun ideas you might consider to enhance your countdown experience!</p>
+            <ul id="funIdeasList"></ul>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
