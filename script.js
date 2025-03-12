@@ -58,4 +58,3 @@ async function generateCalendar() {
         <textarea>${activities[i]}</textarea>`;
     calendarDiv.appendChild(dayBox);
 }
-}
