@@ -65,9 +65,17 @@ async function generateCalendar() {
 
         const dayBox = document.createElement("div");
         dayBox.className = "day-box";
-        dayBox.innerHTML = `<strong>${formattedDate} - Day ${countdownDays - i}</strong><br>
-           <textarea oninput="adjustHeight(this)">${idea}</textarea>`;
+        
+        const textarea = document.createElement("textarea");
+        textarea.value = idea;
+        textarea.setAttribute("oninput", "adjustHeight(this)");
+        dayBox.innerHTML = `<strong>${formattedDate} - Day ${countdownDays - i}</strong><br>`;
+        dayBox.appendChild(textarea);
         calendarDiv.appendChild(dayBox);
+        
+        // ✅ Trigger resizing on initial load
+        adjustHeight(textarea);
+
     }
 }
 
@@ -76,6 +84,7 @@ function adjustHeight(textarea) {
     textarea.style.height = "auto"; // Reset height to auto
     textarea.style.height = textarea.scrollHeight + "px"; // Expand to fit content
 }
+
 
 // ✅ Reset Form
 function resetForm() {
