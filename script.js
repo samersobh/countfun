@@ -38,7 +38,6 @@ async function generateCalendar() {
     const extraFunIdeas = response.slice(countdownDays); // Last 5 are extra fun ideas
 
     // ✅ Ensure "Other Fun Ideas" section is populated
-    const funIdeasList = document.getElementById("funIdeasList");
     funIdeasList.innerHTML = ""; // Clear previous items
     
     if (extraFunIdeas.length > 0) {
