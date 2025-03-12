@@ -61,6 +61,8 @@ async function generateCalendar() {
         const options = { weekday: "long", day: "numeric", month: "short" };
         const formattedDate = dayDate.toLocaleDateString("en-US", options);
 
+        const idea = activities[i] ? activities[i] : "📝 No idea generated—add your own!"; // ✅ Ensure idea is defined
+
         const dayBox = document.createElement("div");
         dayBox.className = "day-box";
         dayBox.innerHTML = `<strong>${formattedDate} - Day ${countdownDays - i}</strong><br>
@@ -68,11 +70,11 @@ async function generateCalendar() {
         calendarDiv.appendChild(dayBox);
     }
 }
+
 // ✅ Function to auto-resize text areas dynamically
 function adjustHeight(textarea) {
     textarea.style.height = "auto"; // Reset height to auto
     textarea.style.height = textarea.scrollHeight + "px"; // Expand to fit content
-}
 }
 
 // ✅ Reset Form
