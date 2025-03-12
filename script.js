@@ -64,9 +64,15 @@ async function generateCalendar() {
         const dayBox = document.createElement("div");
         dayBox.className = "day-box";
         dayBox.innerHTML = `<strong>${formattedDate} - Day ${countdownDays - i}</strong><br>
-            <textarea>${activities[i]}</textarea>`;
+           <textarea oninput="adjustHeight(this)">${idea}</textarea>`;
         calendarDiv.appendChild(dayBox);
     }
+}
+// ✅ Function to auto-resize text areas dynamically
+function adjustHeight(textarea) {
+    textarea.style.height = "auto"; // Reset height to auto
+    textarea.style.height = textarea.scrollHeight + "px"; // Expand to fit content
+}
 }
 
 // ✅ Reset Form
