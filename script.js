@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // ✅ Fetch AI-Generated Suggestions (Includes Location)
 async function fetchAIActivities(eventName, eventLocation, countdownDays) {
     try {
-        const response = await axios.post("https://your-backend.onrender.com/api/fetch-activities", {
+        const response = await axios.post("https://countfun-backend.onrender.com/api/fetch-activities", {
             eventName,
             eventLocation,
             countdownDays
