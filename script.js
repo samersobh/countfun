@@ -23,18 +23,33 @@ async function generateCalendar() {
     const funIdeasList = document.getElementById("funIdeasList");
 
     calendarDiv.innerHTML = "";
-    funIdeasList.innerHTML = "";
+    funIdeasList.innerHTML = ""; // Clear "Other Fun Ideas"
 
-    const activities = await fetchAIActivities(eventName, eventLocation, countdownDays);
+    if (!eventName || !eventLocation || isNaN(countdownDays) || countdownDays < 1) {
+        alert("❗ Please fill in all fields correctly!");
+        return;
+    }
 
+    // ✅ Fetch AI-generated activities from the backend
+    const response = await fetchAIActivities(eventName, eventLocation, countdownDays);
+
+    // ✅ Extract activities for countdown days & extra fun ideas
+    const activities = response.slice(0, countdownDays); // First part is for countdown days
+    const extraFunIdeas = response.slice(countdownDays); // Last 5 are extra fun ideas
+
+    // ✅ Display extra fun ideas in "Other Fun Ideas"
+    extraFunIdeas.forEach(idea => {
+        const li = document.createElement("li");
+        li.textContent = idea;
+        funIdeasList.appendChild(li);
+    });
+
+    // ✅ Generate countdown calendar
     for (let i = 0; i < countdownDays; i++) {
         const dayBox = document.createElement("div");
         dayBox.className = "day-box";
-        const activity = activities[i] || "📝 Plan your own activity!";
-        
         dayBox.innerHTML = `<strong>Day ${countdownDays - i}</strong><br>
-            <textarea>${activity}</textarea>`;
-
+            <textarea>${activities[i]}</textarea>`;
         calendarDiv.appendChild(dayBox);
     }
 }
