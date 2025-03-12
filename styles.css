@@ -82,11 +82,13 @@ button:hover {
     max-height: none; /* Let it expand */
     padding: 8px;
     font-size: 14px;
-    resize: vertical; /* Allow manual resizing */
+    resize: none; /* Prevent manual resizing */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
+    overflow: hidden; /* Hide scrollbar */
 }
+
 
 
 /* ✅ Recommendations Section */
