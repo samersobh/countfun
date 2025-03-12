@@ -37,12 +37,22 @@ async function generateCalendar() {
     const activities = response.slice(0, countdownDays); // First part is for countdown days
     const extraFunIdeas = response.slice(countdownDays); // Last 5 are extra fun ideas
 
-    // ✅ Display extra fun ideas in "Other Fun Ideas"
-    extraFunIdeas.forEach(idea => {
-        const li = document.createElement("li");
-        li.textContent = idea;
-        funIdeasList.appendChild(li);
-    });
+    // ✅ Ensure "Other Fun Ideas" section is populated
+    const funIdeasList = document.getElementById("funIdeasList");
+    funIdeasList.innerHTML = ""; // Clear previous items
+    
+    if (extraFunIdeas.length > 0) {
+        extraFunIdeas.forEach(idea => {
+            if (idea.trim() !== "") { // Ensure no empty ideas
+                const li = document.createElement("li");
+                li.textContent = idea;
+                funIdeasList.appendChild(li);
+            }
+        });
+    } else {
+        funIdeasList.innerHTML = "<p>No extra fun ideas available.</p>"; // Fallback message
+    }
+    
 
     // ✅ Generate countdown calendar
     for (let i = 0; i < countdownDays; i++) {
