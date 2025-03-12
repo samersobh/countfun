@@ -46,10 +46,16 @@ async function generateCalendar() {
 
     // ✅ Generate countdown calendar
     for (let i = 0; i < countdownDays; i++) {
-        const dayBox = document.createElement("div");
-        dayBox.className = "day-box";
-        dayBox.innerHTML = `<strong>Day ${countdownDays - i}</strong><br>
-            <textarea>${activities[i]}</textarea>`;
-        calendarDiv.appendChild(dayBox);
-    }
+    const dayDate = new Date(eventDate);
+    dayDate.setDate(eventDate.getDate() - (countdownDays - 1 - i));
+
+    const options = { weekday: "long", day: "numeric", month: "short" };
+    const formattedDate = dayDate.toLocaleDateString("en-US", options);
+
+    const dayBox = document.createElement("div");
+    dayBox.className = "day-box";
+    dayBox.innerHTML = `<strong>${formattedDate} - Day ${countdownDays - i}</strong><br>
+        <textarea>${activities[i]}</textarea>`;
+    calendarDiv.appendChild(dayBox);
+}
 }
